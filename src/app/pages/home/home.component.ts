@@ -4,8 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-home',
   standalone: false,
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  userName: string | null;
 
+  ngOnInit() {
+    this.userName = sessionStorage.getItem('user');
+  }
 }

@@ -10,6 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from '../environments/environment.development';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -19,8 +24,28 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     MenuComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, MatIconModule],
-  providers: [provideAnimationsAsync()],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+  ],
+  providers: [
+    // provideAnimationsAsync(),
+    // provideFirebaseApp(() =>
+    //   initializeApp({
+    //     projectId: 'user-crud-angular-1f394',
+    //     appId: '1:181572304653:web:23c97f8b4f2ee8979d3a44',
+    //     storageBucket: 'user-crud-angular-1f394.firebasestorage.app',
+    //     apiKey: 'AIzaSyC9BCFngw-Jvx0qbZTFeDK_Gm0cjsyBHUY',
+    //     authDomain: 'user-crud-angular-1f394.firebaseapp.com',
+    //     messagingSenderId: '181572304653',
+    //   })
+    // ),
+    // provideFirestore(() => getFirestore()),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
