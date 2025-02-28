@@ -15,6 +15,9 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment.development';
 import { AngularFireModule } from '@angular/fire/compat';
+import { UsersComponent } from './pages/users/users.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     LoginComponent,
     HomeComponent,
     MenuComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     FormsModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [
